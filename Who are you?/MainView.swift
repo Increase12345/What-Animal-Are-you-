@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var scale = 1.0
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -18,11 +20,14 @@ struct MainView: View {
                     Text("🦊")
                         .font(.system(size: 50))
                 }
-                Spacer()
+              Spacer()
                 VStack {
+                    Spacer()
+                    Spacer()
                     Text("What Animal Are You?")
                         .font(.title)
-                    
+                   
+                    Spacer()
                     NavigationLink(destination: {
                         IntroView()
                     }, label: {
@@ -33,10 +38,19 @@ struct MainView: View {
                             .background(Color.green)
                             .clipShape(Capsule())
                             .bold()
-                    })
-                    .padding(.top)
-                }
+                            .scaleEffect(scale)
+                            .onAppear {
+                                let baseAnimation = Animation.easeInOut(duration: 1)
+                                let repeated = baseAnimation.repeatForever(autoreverses: true)
+                                withAnimation(repeated) {
+                                    scale = 0.9
+                                }
+                            }
+                        })
+                    Spacer()
+                    }
                 Spacer()
+                
                 HStack {
                     Text("🐰")
                         .font(.system(size: 50))
@@ -50,8 +64,6 @@ struct MainView: View {
         .padding()
     }
 }
-
-
 
 
 struct MainView_Previews: PreviewProvider {
