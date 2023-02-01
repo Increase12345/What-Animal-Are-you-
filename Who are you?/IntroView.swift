@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IntroView: View {
     @EnvironmentObject var summaryData: SummaryModel
+    @State private var alert = false
     
     var body: some View {
         NavigationStack {
@@ -32,8 +33,14 @@ struct IntroView: View {
                     .background(.green)
                     .clipShape(Capsule())
             })
-            //.disabled(true)
             .padding(.bottom)
+            .disabled(summaryData.personName.isEmpty)
+            .simultaneousGesture(TapGesture().onEnded({
+                if summaryData.personName.count == 0 {
+                    self.alert = true
+                }
+            }))
+            .alert("Enter your name!", isPresented: $alert, actions: {})
             
                 .navigationTitle("What animal are you?")
                 .navigationBarBackButtonHidden(true)

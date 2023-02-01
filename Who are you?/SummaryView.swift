@@ -26,9 +26,8 @@ struct SummaryView: View {
                 .multilineTextAlignment(.leading)
             Spacer()
             
-            Button(action: {
-                startOverButton()
-               
+            NavigationLink(destination: {
+                MainView()
             }, label: {
                 Text("Start Over")
                     .frame(width: 250, height: 50)
@@ -37,6 +36,9 @@ struct SummaryView: View {
                     .clipShape(Capsule())
                     .padding(.bottom)
             })
+            .simultaneousGesture(TapGesture().onEnded({
+                startOverAction()
+            }))
             
             .navigationTitle("Summary")
             .navigationBarBackButtonHidden(true)
@@ -71,7 +73,7 @@ struct SummaryView: View {
         return value
     }
     
-    func startOverButton() {
+    func startOverAction() {
         summaryData.steak = false
         summaryData.fish = false
         summaryData.carrot = false
