@@ -62,6 +62,9 @@ struct MainView: View {
         }
         .navigationBarBackButtonHidden(true)
         .padding()
+        .task {
+            playSound(sound: "start", type: "mp3")
+        }
     }
 }
 

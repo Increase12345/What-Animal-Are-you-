@@ -45,6 +45,10 @@ struct IntroView: View {
                 .navigationTitle("What animal are you?")
                 .navigationBarBackButtonHidden(true)
         }
+        .task {
+            stop()
+            playSound(sound: "mid", type: "mp3")
+        }
     }
 }
 

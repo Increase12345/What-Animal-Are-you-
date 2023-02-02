@@ -42,6 +42,10 @@ struct SummaryView: View {
             
             .navigationTitle("Summary")
             .navigationBarBackButtonHidden(true)
+            .task {
+                stop()
+                playSound(sound: "end", type: "mp3")
+            }
         }
     }
     
