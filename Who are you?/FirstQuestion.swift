@@ -25,7 +25,6 @@ struct FirstQuestion: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                
             }
             
             VStack(spacing: 20) {
@@ -74,9 +73,7 @@ struct FirstQuestion: View {
                 .foregroundColor(summaryData.cucumber ? .white: .black)
                 .clipShape(Capsule())
                 .disabled(summaryData.steak || summaryData.fish || summaryData.carrot ? true: false)
-                
                 Spacer()
-                
                 
                 NavigationLink(destination: {
                     SecondQuestion()

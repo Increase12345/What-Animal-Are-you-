@@ -10,7 +10,6 @@ import SwiftUI
 struct SummaryView: View {
     @EnvironmentObject var summaryData: SummaryModel
     
-    
     var body: some View {
         NavigationStack {
             Spacer()

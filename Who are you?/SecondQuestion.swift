@@ -31,8 +31,6 @@ struct SecondQuestion: View {
                 Toggle("Eat 🍽️", isOn: $summaryData.eat)
             }
             .padding(.horizontal, 30)
-            
-            
             Spacer()
             
             NavigationLink(destination: {
